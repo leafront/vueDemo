@@ -44,12 +44,11 @@
 	       }
 	     }).catch((error) => {
 
-	       console.error(error)
+	       console.error(error);
 
 	     })
 		},
     computed: {
-
 
       //计算总价
       totalPrice (){
@@ -84,9 +83,11 @@
 
 				let numItem = [];
 
-				list.forEach((item) => {
+				list.forEach(({
+          id
+        }) => {
 
-					selectedItem[item.id] = false;
+					selectedItem[id] = false;
 
 					numItem.push(1);
 
@@ -105,11 +106,11 @@
 
         if (selectItem[id]) {
 
-           this.selectedItem[id] = false;
+           selectItem[id] = false;
 
         } else {
 
-           this.selectedItem[id] = true;
+           selectItem[id] = true;
         }
 
       },
