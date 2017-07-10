@@ -51,7 +51,7 @@
 
       isSelectAll() {
 
-        const selectedItem = this.selectedItem
+        const selectedItem = this.selectedItem;
 
         const isSelect = this.list.every(({id}) =>{
 
