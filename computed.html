@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>computed 计算属性</title>
+
+    <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+        <label>单价</label>
+        <input type="text" v-model="price"/>
+      </p>
+      <p>
+        <label>数量</label>
+        <input type="text" v-model="num"/>
+      </p>
+      <p>
+        <span>{{ total  }}</span>
+      </p>
+    </div>
+
+    <script type = "text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            price: '',
+            num: ''
+        },
+        computed: {
+            total: function () {
+              return this.price * this.num
+            }
+        }
+    })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>component 组件</title>
+
+    <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ol>
+        <List
+          v-for="item in groceryList"
+          :todo="item"
+          :key="item.id">
+        </List>
+      </ol>
+    </div>
+    <script type = "text/javascript">
+
+      Vue.component('List', {
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+      })
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          groceryList: [
+            { id: 0, text: '蔬菜' },
+            { id: 1, text: '奶酪' },
+            { id: 2, text: '随便其他什么人吃的东西' }
+          ]
+        }
+      })
+    </script>
+  </body>
+</html>
