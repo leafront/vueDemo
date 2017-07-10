@@ -60,11 +60,15 @@
 
         const numItem = this.numItem;
 
-        this.list.forEach(({id},index) => {
+        this.list.forEach(({
+          id,
+          price
+
+        },index) => {
 
           if (selectedItem[id]) {
 
-            total += item.price * numItem[index];
+            total += price * numItem[index];
 
           }
         })
@@ -124,8 +128,6 @@
 
         this.isSelectAll = true;
 
-        this.selectedItem = selectedItem;
-
       },
       //单个数量增加或者减少
       changeNum (index,val) {
@@ -160,8 +162,6 @@
         })
 
         this.isSelectAll = false;
-
-        this.selectedItem = selectedItem;
 
       },
       //单个删除
