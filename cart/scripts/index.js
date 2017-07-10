@@ -53,7 +53,9 @@
 
         const selectedItem = this.selectedItem;
 
-        const isSelect = this.list.every(({id}) =>{
+        const isSelect = this.list.every(({
+          id
+        }) =>{
 
           return selectedItem[id];
 
@@ -134,7 +136,9 @@
 
         let selectedItem = this.selectedItem;
 
-        list.forEach(({id}) => {
+        list.forEach(({
+          id
+        }) => {
 
           selectedItem[id] = true;
 
@@ -167,7 +171,9 @@
 
         let selectedItem = this.selectedItem;
 
-        list.forEach(({id}) => {
+        list.forEach(({
+          id
+        }) => {
 
           selectedItem[id] = false;
 
@@ -192,7 +198,9 @@
 
         const numItem = this.numItem;
 
-				const isSelectGood = list.some(({id}) => {
+				const isSelectGood = list.some(({
+          id
+        }) => {
 
 					return selectedItem[id] == true;
 
