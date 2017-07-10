@@ -58,13 +58,13 @@
 
         const selectedItem = this.selectedItem;
 
-        const numItem = this.numItem
+        const numItem = this.numItem;
 
         this.list.forEach(({id},index) => {
 
           if (selectedItem[id]) {
 
-            total += item.price * numItem[index]
+            total += item.price * numItem[index];
 
           }
         })
@@ -101,11 +101,11 @@
 
         if (selectItem[id]) {
 
-           this.selectedItem[id] = false
+           this.selectedItem[id] = false;
 
         } else {
 
-           this.selectedItem[id] = true
+           this.selectedItem[id] = true;
         }
 
       },
@@ -136,12 +136,11 @@
 
         if (currentNum == 1 &&  val == -1) {
 
-          return
+          return;
 
         } else {
 
-
-           this.numItem.splice(index,1, currentNum + val)
+           this.numItem.splice(index,1, currentNum + val);
 
         }
 
@@ -183,10 +182,9 @@
 
         const numItem = this.numItem;
 
-
 				const isSelectGood = list.some(({id}) => {
 
-					return selectedItem[id] == true
+					return selectedItem[id] == true;
 
 				})
 
