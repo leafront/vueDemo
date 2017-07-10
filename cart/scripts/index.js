@@ -60,9 +60,9 @@
 
         const numItem = this.numItem
 
-        this.list.forEach((item,index) => {
+        this.list.forEach(({id},index) => {
 
-          if (selectedItem[item.id]) {
+          if (selectedItem[id]) {
 
             total += item.price * numItem[index]
 
