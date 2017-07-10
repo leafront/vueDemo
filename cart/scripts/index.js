@@ -14,7 +14,6 @@
     el:"#app",
     data:{
       selectedItem: {},
-      isSelectAll: false,
       numItem:[],
 			isLoading: true,
       list:[]
@@ -49,6 +48,20 @@
 	     })
 		},
     computed: {
+
+      isSelectAll() {
+
+        const selectedItem = this.selectedItem
+
+        const isSelect = this.list.every(({id}) =>{
+
+          return selectedItem[id];
+
+        })
+
+        return isSelect;
+
+      },
 
       //计算总价
       totalPrice (){
@@ -127,8 +140,6 @@
 
         })
 
-        this.isSelectAll = true;
-
       },
       //单个数量增加或者减少
       changeNum (index,val) {
@@ -161,8 +172,6 @@
           selectedItem[id] = false;
 
         })
-
-        this.isSelectAll = false;
 
       },
       //单个删除
