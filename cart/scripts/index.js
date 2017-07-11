@@ -19,8 +19,7 @@
       list:[]
     },
 		created() {
-			fetch(
-	      '/cart/list' , {
+			fetch('/cart/list' , {
 	       method: 'POST',
 	       headers: {
 	         'Content-Type':'application/json'
@@ -130,7 +129,7 @@
 
       },
       //全选
-      selectAll: function(){
+      selectAll (){
 
         const list = this.list;
 
@@ -165,7 +164,7 @@
       },
 
       //取消全选
-      unSelectAll(){
+      unSelectAll (){
 
         const list = this.list;
 
