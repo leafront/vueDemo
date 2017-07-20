@@ -37,7 +37,7 @@ var port = 8080,
         }])
 
 
-      },800)
+      },400)
 
     })
 console.log('Now Serving http://localhost:'+port+'/index.html');
