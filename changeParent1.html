@@ -13,22 +13,21 @@
 </head>
 <body>
   <div id="app">
-     <h1>我是父组件</h1>
+    <h1>我是父组件</h1>
     {{message.a}}
-        <Child :msg="message"></Child>
-      
+    <Child :msg="message"></Child>  
   </div>
   <script type="text/javascript">
   Vue.component('Child', {   
      props: ['msg'],                    
-     template: `<div id="c1">
-                 <h1>我是子组件</h1>
-                 <b>{{msg.a}}</b><input type="button" value="改变父级数据" @click="change">
-                </div>`,
-
+     template: `
+       <div id="c1">
+         <h1>我是子组件</h1>
+         <b>{{msg.a}}</b><input type="button" value="改变父级数据" @click="change">
+       </div>
+     `,
      methods: {                       
-       change() {       
-             
+       change() {      
          this.msg.a = '被改了，哈哈'                 
        }                     
      }                           
@@ -41,8 +40,6 @@
       }        
     }           
   })
-
-
 </script>
 </body>
 </html>

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>非父子组件通信</title>
+  <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <Child1></Child1>
+    <Child2></Child2>
+  </div>
+
+  <script type = "text/javascript">
+
+    var Hub = new Vue({})
+
+    Vue.component('Child1', {  
+      template: `
+        <div>
+          <h1>我是Child1组件</h1>
+           <input type="button" value="改变Child2的状态" @click="eve">
+        </div>
+      `,               
+       methods: {                       
+         eve() {      
+           Hub.$emit('change','hehe');  //触发事件         
+         }                     
+       }                           
+    })
+
+    Vue.component('Child2', {                 
+                         
+       created() {      
+         Hub.$on('change',(msg) => {  //接受事件
+
+           this.message = msg;
+
+         })
+       },                     
+
+       template: `
+         <div>
+           <h1>我是Child2组件</h1>
+          <b>{{message}}</b>
+         </div>
+       `, 
+       data() {
+         return {
+           message: '默认值'
+         }
+       }                          
+    })
+    var vm = new Vue({
+        el: '#app'
+    })
+  </script>
+</script>
+</body>
+</html>

@@ -2,32 +2,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-        <title>子组件修改父组件数据---方法一</title>
-        <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
-        <style>
-        #c1{
-          background: #eee;
-        }
-        </style>
+  <meta charset="UTF-8">
+  <title>子组件修改父组件数据---方法一</title>
+  <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
+  <style>
+    #c1{
+      background: #eee;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
      <h1>我是父组件</h1>
     {{message }}
-        <Child :msg="message" @childchange="ichange"></Child>
-      
+     <Child :msg="message" @childchange="ichange"></Child>    
   </div>
   <script type="text/javascript">
   Vue.component('Child', {   
      props: ['msg'],                    
-     template: `<div id="c1">
-                 <h1>我是子组件</h1>
-                 <b>{{msg}}</b><input type="button" value="改变父级数据" @click="change">
-                </div>`,
+     template: `
+     <div id="c1">
+       <h1>我是子组件</h1>
+       <b>{{msg}}</b><input type="button" value="改变父级数据" @click="change">
+     </div>`,
      methods: {                  
        change() {       
-             
+
          this.msg = '被改了，哈哈'
 
          this.$emit('childchange', this.msg);                        
@@ -40,10 +40,10 @@
       message:'我是父组件的数据'                  
     },
      methods: {
-
        ichange(val){
 
          this.message = val;
+
       }
     }         
   })
