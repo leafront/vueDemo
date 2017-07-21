@@ -1,13 +1,14 @@
 
 	Vue.component('Loading', {
 		props: ['isLoading'],
-		template:`<div class="loadingToast" v-show="isLoading">
-								<div class="weui-mask_transparent"></div>
-								<div class="weui-toast">
-									<i class="weui-loading weui-icon_toast"></i>
-									<p class="weui-toast__content">正在加载中</p>
-								</div>
-							</div>`
+		template:`
+			<div class="loadingToast" v-show="isLoading">
+				<div class="weui-mask_transparent"></div>
+				<div class="weui-toast">
+					<i class="weui-loading weui-icon_toast"></i>
+					<p class="weui-toast__content">正在加载中</p>
+				</div>
+			</div>`
 	})
 
   var vm = new Vue({
